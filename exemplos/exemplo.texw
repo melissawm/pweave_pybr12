@@ -1,0 +1,39 @@
+\documentclass{article}
+\usepackage{graphicx}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\begin{document}
+
+<%
+import matplotlib.pyplot as plt
+from numpy import pi, linspace, sqrt, sin
+%>
+
+Código invisível que atribui valor às variáveis $a$, $b$ e $c$.
+
+<<echo=False>>=
+a = 1
+b = -2
+c = 1
+@
+
+Este é o código visível que calcula as raízes da equação quadrática
+$$ax^2+bx+c = 0.$$
+
+<<term=True>>=
+print('x1 = '+str((-b+sqrt(b**2-4*a*c))/(2*a)))
+print('x2 = '+str((-b-sqrt(b**2-4*a*c))/(2*a)))
+@
+
+Python inline: $\sqrt{2} = <%= sqrt(2) %>$
+
+Relembrando as variáveis acima: $a = <%= a %>$, $b = <%= b %>$ e $c = <%= c %>$.
+
+Um gráfico:
+
+<<fig=True, echo=False>>=
+x = linspace(0, 6*pi, 200)
+plt.plot(x, sin(x))
+@
+
+\end{document}
